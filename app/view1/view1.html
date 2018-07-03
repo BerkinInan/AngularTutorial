@@ -1,1 +1,33 @@
-<p>This is the partial for view 1.</p>
+<div class="border rounded container m-3 p-3">
+    <h2>Calculator</h2><br>
+    <div class="input-group mb-3">
+        <input ng-model="vm.value1" type="number">
+        <select ng-model="vm.sign">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="^">^</option>
+        </select>
+        <input ng-model="vm.value2" type="number">
+        <span> = {{vm.result}}</span><br>
+    </div>
+
+    <div class="w-80 d-none d-md-block"></div>
+
+    <div>
+        <button  class="btn btn-success" ng-click="vm.inc()">Click me</button>
+        <h6 class="p-3">Clicked {{vm.clickCount}} times</h6>
+
+        <h2>Random numbers</h2>
+        <span class="p-1" ng-repeat="elm in vm.myArray | orderBy:'valueOf(elm)':vm.reverse | limitTo:vm.limit track by $index">
+        {{elm}}
+        </span><br>
+
+        <div class="container p-3">
+            <button class="btn btn-primary" ng-click="vm.limitInc()">Limit increase</button>
+            <button class="btn btn-warning" ng-click="vm.reverseList()">{{vm.reverse ? "Reverse (DESC)" : "Reverse (ASC)"}}</button>
+        </div>
+    </div>
+</div>
+
